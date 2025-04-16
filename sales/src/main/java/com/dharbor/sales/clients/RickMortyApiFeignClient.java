@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-@FeignClient(name = "rickmorty-api", url = "${service.external.api.rickmorty.url}")
+@FeignClient(name = "rickmorty-api", url = "${service.external.api.rickmorty.url}" , fallback = RickMortyApiFeignFallback.class)
 public interface RickMortyApiFeignClient {
 
     @GetMapping("/character/{id}")
